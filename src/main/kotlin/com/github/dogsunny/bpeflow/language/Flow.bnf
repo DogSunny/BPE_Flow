@@ -1,0 +1,19 @@
+{
+    parserClass="com.github.dogsunny.bpeflow.language.parser.FlowParser"
+    extends="com.intellij.extapi.psi.ASTWrapperPsiElement"
+
+    psiClassPrefix="Flow"
+    psiImplClassSuffix="Impl"
+    psiPackage="com.github.dogsunny.bpeflow.language.psi"
+    psiImplPackage="com.github.dogsunny.bpeflow.language.psi.impl"
+
+    elementTypeHolderClass="com.github.dogsunny.bpeflow.language.psi.FlowTypes"
+    elementTypeClass="com.github.dogsunny.bpeflow.language.psi.FlowElementType"
+    tokenTypeClass="com.github.dogsunny.bpeflow.language.psi.FlowTokenType"
+}
+
+flowFile ::= item_*
+
+private item_ ::= (property|COMMENT|CRLF)
+
+property ::= (KEY? SEPARATOR VALUE?) | KEY
