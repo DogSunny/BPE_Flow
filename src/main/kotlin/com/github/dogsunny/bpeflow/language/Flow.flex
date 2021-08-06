@@ -23,6 +23,7 @@ END_OF_LINE_COMMENT=("#"|"!")[^\r\n]*
 SEPARATOR=[:=]
 KEY_CHARACTER=[^:=\ \n\t\f\\] | "\\ "
 
+
 %state WAITING_VALUE
 
 %%

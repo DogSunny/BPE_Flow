@@ -1,19 +1,32 @@
 {
+    // 生成的 parser
     parserClass="com.github.dogsunny.bpeflow.language.parser.FlowParser"
+    // FlowPropertyImpl 会继承
     extends="com.intellij.extapi.psi.ASTWrapperPsiElement"
 
     psiClassPrefix="Flow"
     psiImplClassSuffix="Impl"
     psiPackage="com.github.dogsunny.bpeflow.language.psi"
     psiImplPackage="com.github.dogsunny.bpeflow.language.psi.impl"
-
+    // 生成的类
     elementTypeHolderClass="com.github.dogsunny.bpeflow.language.psi.FlowTypes"
+    // 定义的 元素类型类 最底层的称为元素类型
     elementTypeClass="com.github.dogsunny.bpeflow.language.psi.FlowElementType"
+    // 定义的 令牌类型
     tokenTypeClass="com.github.dogsunny.bpeflow.language.psi.FlowTokenType"
 }
 
+//flowFile ::= item_*
+//
+//private item_ ::= (property|COMMENT|CRLF)
+//
+//property ::= (KEY? SEPARATOR VALUE?) | KEY
+
+
 flowFile ::= item_*
 
-private item_ ::= (property|COMMENT|CRLF)
+private item_ ::= importStatement | funcHead | COMMENT | CRLF | OTHER
 
-property ::= (KEY? SEPARATOR VALUE?) | KEY
+importStatement ::= IMPORT PACKAGE '.' ('_'| IDENTIFIER) ';'?
+
+funcHead ::= '//#' IDENTIFIER

@@ -1,25 +1,39 @@
 <idea-plugin>
     <id>com.github.dogsunny.bpeflow</id>
     <name>BPE_Flow</name>
-    <vendor>dogsunny</vendor>
+    <vendor>Devin</vendor>
 
     <!-- Product and plugin compatibility requirements -->
     <!-- https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
     <depends>com.intellij.modules.platform</depends>
 
     <extensions defaultExtensionNs="com.intellij">
-        <applicationService serviceImplementation="com.github.dogsunny.bpeflow.services.MyApplicationService"/>
-        <projectService serviceImplementation="com.github.dogsunny.bpeflow.services.MyProjectService"/>
+        <applicationService
+                serviceImplementation="com.github.dogsunny.bpeflow.services.MyApplicationService"
+        />
+        <projectService
+                serviceImplementation="com.github.dogsunny.bpeflow.services.MyProjectService"
+        />
         <!--文件类型定义-->
-        <fileType name="Flow File"
-                  implementationClass="com.github.dogsunny.bpeflow.language.FlowFileType"
-                  fieldName="INSTANCE"
-                  language="Flow"
-                  extensions="flow"
+        <fileType
+                name="Flow File"
+                implementationClass="com.github.dogsunny.bpeflow.language.FlowFileType"
+                fieldName="INSTANCE"
+                language="Flow"
+                extensions="flow"
         />
         <!--解析器定义-->
-        <lang.parserDefinition language="Flow"
-                               implementationClass="com.github.dogsunny.bpeflow.language.FlowParserDefinition"/>
+        <lang.parserDefinition
+                language="Flow"
+                implementationClass="com.github.dogsunny.bpeflow.language.FlowParserDefinition"
+        />
+        <!--语法荧光笔工厂-->
+        <lang.syntaxHighlighterFactory
+                language="Flow"
+                implementationClass="com.github.dogsunny.bpeflow.language.FlowSyntaxHighlighterFactory"
+        />
+        <!--颜色设置页面-->
+        <colorSettingsPage implementation="com.github.dogsunny.bpeflow.language.FlowColorSettingsPage"/>
     </extensions>
 
     <applicationListeners>

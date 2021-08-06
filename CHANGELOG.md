@@ -3,5 +3,5 @@
 # BPE_Flow Changelog
 
 ## [Unreleased]
-### Added
-- Initial scaffold created from [IntelliJ Platform Plugin Template](https://github.com/JetBrains/intellij-platform-plugin-template)
+### 第一版本
+- 语法高亮功能
