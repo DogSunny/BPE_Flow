@@ -10,12 +10,16 @@
     <extensions defaultExtensionNs="com.intellij">
         <applicationService serviceImplementation="com.github.dogsunny.bpeflow.services.MyApplicationService"/>
         <projectService serviceImplementation="com.github.dogsunny.bpeflow.services.MyProjectService"/>
-        <fileType name="Simple File"
+        <!--文件类型定义-->
+        <fileType name="Flow File"
                   implementationClass="com.github.dogsunny.bpeflow.language.FlowFileType"
                   fieldName="INSTANCE"
                   language="Flow"
                   extensions="flow"
         />
+        <!--解析器定义-->
+        <lang.parserDefinition language="Flow"
+                               implementationClass="com.github.dogsunny.bpeflow.language.FlowParserDefinition"/>
     </extensions>
 
     <applicationListeners>

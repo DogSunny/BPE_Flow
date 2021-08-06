@@ -2,6 +2,8 @@ import io.gitlab.arturbosch.detekt.Detekt
 import org.jetbrains.changelog.markdownToHTML
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
+sourceSets["main"].java.srcDirs("src/main/gen")
+
 fun properties(key: String) = project.findProperty(key).toString()
 
 plugins {
